@@ -1,0 +1,5 @@
+.idea
+backend/.env
+backend/db.sqlite3
+venv
+django
