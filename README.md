@@ -1,5 +1,5 @@
-# VK-ADJUTOR
-🤍 Bot, just bot
+# GIT-REVIEW
+🤍 Reviews GitHub accounts by theirs usernames 
 
 ## Launching project in production mode
 #### Git, Docker and Docker Compose must be installed
@@ -7,8 +7,8 @@
 1. Clone project
 
 ```
-git clone https://github.com/AlexGeniusMan/ADJUTOR-PROJECT adj
-cd adj
+git clone https://github.com/AlexGeniusMan/GIT-REVIEW-PROJECT git-review
+cd git-review
 ```
 
 2. Generate new DJANGO_SECRET_KEY and paste it to backend service as SECRET_KEY environment variable in docker-compose.yml
