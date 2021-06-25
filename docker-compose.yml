@@ -4,16 +4,19 @@ services:
   backend:
     build:
       context: ./backend
-    command: sh -c "gunicorn --bind 0.0.0.0:8080 project.wsgi"
+    command: sh -c "python3 manage.py collectstatic --noinput && gunicorn --bind 0.0.0.0:8080 project.wsgi"
     expose:
       - 8080
+    volumes:
+      - ./backend:/usr/src/git-review
     environment:
-      - DEBUG=False
+      - DEBUG=True
       - SECRET_KEY=DJANGO_SECRET_KEY
+      - github_token=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
   frontend:
     build:
       context: ./frontend
-#    command: npm run-script build
+    command: npm run-script build
     volumes:
       - frontend_build_folder:/frontend/build
     environment:
@@ -25,6 +28,7 @@ services:
       - 8004:8080
     volumes:
       - frontend_build_folder:/var/www/frontend
+      - ./backend:/usr/src/git-review
     depends_on:
       - backend
       - frontend
