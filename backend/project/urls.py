@@ -25,7 +25,7 @@ urlpatterns = [
 # API
 urlpatterns += [
     # Analise profile's languages by username
-    path('api/langiage_analise', views.LanguageAnaliseView.as_view()),
+    path('api/language_analise', views.LanguageAnaliseView.as_view()),
     # # Tests service
     # path('test', views.TestView.as_view()),
 ]

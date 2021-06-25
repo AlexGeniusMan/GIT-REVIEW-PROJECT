@@ -79,8 +79,11 @@ class LanguageAnaliseView(APIView):
             value_sum += value
 
         chart_languages = dict()
+        response_languages = list()
         for language, value in languages.items():
             print(value / value_sum, end=' ')
+            # response_languages.append([language, f'{round(value / value_sum, 4) * 100}%'])
+            response_languages.append([language, "{:.2f}%".format(value / value_sum * 100, )])
             if value / value_sum < 0.01:
                 print(language, 'true')
                 if 'Other' not in chart_languages:
@@ -163,7 +166,8 @@ class LanguageAnaliseView(APIView):
         plt.savefig(path)
         return Response({
             'username': username,
-            'pie_chart': path
+            'pie_chart': path,
+            'languages': response_languages
         })
 
 # class MainView(APIView):
