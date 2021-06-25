@@ -47,13 +47,15 @@ class LanguageAnaliseView(APIView):
             'content-type': 'application/json',
             'Authorization': f'Bearer {github_token}'
         }
+        print(github_token)
 
         repos = requests.get(url=f'https://api.github.com/users/{username}/repos', headers=headers).json()
         print(f"Number of open repos: {len(repos)}")
+        print(repos)
 
         # with open('data.json', 'w') as fp:
         #     json.dump(repos, fp)
-        # languages = dict()
+        languages = dict()
 
         i = 0
         for repo in repos:
@@ -64,6 +66,7 @@ class LanguageAnaliseView(APIView):
             time.sleep(0)
             repo_languages = requests.get(f"https://api.github.com/repos/{username}/{repo['name']}/languages",
                                           headers=headers).json()
+            print(repo_languages)
             # print(repo_languages)
             for repo_language, value in repo_languages.items():
                 # print(repo_language, value)

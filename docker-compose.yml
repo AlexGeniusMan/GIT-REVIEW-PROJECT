@@ -12,7 +12,7 @@ services:
     environment:
       - DEBUG=True
       - SECRET_KEY=DJANGO_SECRET_KEY
-      - github_token=YOUR_GITHUB_ACCESS_TOKEN
+      - github_token=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
   frontend:
     build:
       context: ./frontend
