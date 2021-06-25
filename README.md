@@ -9,6 +9,8 @@
 ```
 git clone https://github.com/AlexGeniusMan/GIT-REVIEW-PROJECT git-review
 cd git-review
+git submodule init
+git submodule update
 ```
 
 2. Generate new DJANGO_SECRET_KEY and paste it to backend service as SECRET_KEY environment variable in docker-compose.yml
